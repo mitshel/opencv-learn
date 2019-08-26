@@ -59,7 +59,7 @@ cv2.waitKey(0)
 
 # find the contours in the thresholded image, then sort the contours
 # by their area, keeping only the largest one
-(_, cnts, _) = cv2.findContours(closed.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+(cnts, _) = cv2.findContours(closed.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
 c = sorted(cnts, key=cv2.contourArea, reverse=True)[0]
 
 # compute the rotated bounding box of the largest contour

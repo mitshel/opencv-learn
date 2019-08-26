@@ -1,3 +1,27 @@
+# Книги
+https://vk.com/topic-51126445_32505707
+
+# Захват и распознавание лиц
+https://robotos.in/uroki/obnaruzhenie-i-raspoznavanie-litsa-na-python
+https://github.com/robotoss/OpenCV-Face-Recognition-master.git
+https://www.pyimagesearch.com/2018/06/18/face-recognition-with-opencv-python-and-deep-learning/
+https://github.com/ageitgey/face_recognition
+https://cmusatyalab.github.io/openface/
+https://neurohive.io/ru/tutorial/raspoznavanie-lica-facenet/
+https://habr.com/ru/post/317798/
+https://proglib.io/p/faceid-python/
+
+# ML Проекты
+https://rb.ru/story/30-ml-projects/
+
+# Русские шрифты в OpenCv
+http://www.compvision.ru/forum/index.php?/topic/625-unicode-%D0%B8-opencv-%D0%B2%D1%8B%D0%B2%D0%BE%D0%B4-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D1%85-%D0%BD%D0%B0%D0%B4%D0%BF%D0%B8%D1%81%D0%B5%D0%B9/
+
+
+# Описание OpenCV
+http://robocraft.ru/page/opencv/
+https://tproger.ru/translations/opencv-python-guide/
+
 ## Дополнительные настройки ANACONDA
 conda install -c conda-forge keras 
 conda install -c conda-forge opencv
@@ -69,5 +93,85 @@ Conda бывает в двух версиях:
     conda list - список установленных пакетов
     conda update conda - обновление conda
     conda clean -t - удаление кеша - архивов .tar.bz2, которые могут занимать много места и не нужны
+
+Работа с виртуальными окружениями:
+
+    # Создание виртуального окружения  с именем tf и установить в него следующие пакеты
+    conda create -n tf python=3 keras tensorflow pandas matplotlib jupyter nb_conda vs2017_win-64
+    
+    # показать список имеющихся виртуальных окружений
+    conda info --envs
+    
+    # переключиться в виртуальное окружние
+    conda activate tf
+    
+    # выйти из виртуального окружния
+    conda activate
+    
+    # удаление виртуального окружения
+    conda remove --name tf --all
+    
+    # клонирование виртуального окружения
+    conda create --name myclone --clone myenv
+    
+    
+# Создание клнфигурации для Tensorflow + Keras
+How to Install Keras with Tensorflow using Conda
+Feb 28, 2017
+Updated 28 Jun 2017.
+Keras is an amazing wrapper for Tensorflow (and Torch) that makes it simple to start playing with Neural Networks.
+Using environment manager like Anaconda makes life easier. But sometimes due to different dependencies it takes additional steps to unserstand how to install needed packages.
+I assume that you have Anaconda installed.
+Since there is no tensorflow package in an Anaconda Package List one have to use conda-forge - community supported repository of packages.
+But as of February 27, 2017 the latest Python version is 3.6 and conda-forge lacks tensorflow package for that version.
+So first of all, let’s create environment with the Python, and name it a ‘tf’. I also advice to install pandas, matplotlib, jupyter and nb_conda packages for data manipulation and visualization of the result.
+
+    conda config --add channels conda-forge
+    conda create -n tf python=3 keras tensorflow pandas matplotlib jupyter nb_conda vs2017_win-64
+
+Then we make new environment active:
+
+    conda activate tf
+
+Testing that Tensorflow is working
+
+    python
+    import tensorflow as tf
+    hello = tf.constant('Hello, TensorFlow!')
+    sess = tf.Session()
+    print(sess.run(hello))
+
+There would be warnings that The TensorFlow library wasn't compiled to use <...> instructions, .... That is ok. We don’t want to build libraries from the the source code here.
+The succesfull output should be:
+Hello, TensorFlow!
+Set up Keras
+To work with Tensorflow as backend, please make sure that you have the following in the ~/.keras/keras.json file:
+
+    {
+        "image_dim_ordering": "th",
+        "floatx": "float32",
+        "epsilon": 1e-07,
+        "backend": "tensorflow"
+    }
+
+That’s it, you are ready to use Keras with Tensorflow!
+Let’s do some “Hello, World!” handwritten digits recognition.
+
+
+Поскольку после всех этих процедур у нас будет утсноавлен 
+
+    numpy==1.17.0
+    tensorflow==1.13.1
+
+то при импорте tensorflow будут возникать варнинги, т.к. numpy 1.17.0 слишком новый
+для tensoeflow 1.13.1. Поэтому нуно либо продаунгрэйдить numpy
+
+    pip install nympy<1.16    #(а может и еще ниже до 1.14 ???)
+
+либо роапгрейдить tensorflow
+
+    pip install tensorflow==2.0.0-beta1
+
+
 
 
